@@ -36,7 +36,7 @@ Workstations...
 Install the workstation CLI using pip or (recommended) pipx
 
 ```shell
-pipx install cloud-workstations
+pipx install cloud-workstation
 ```
 
 ## Usage
