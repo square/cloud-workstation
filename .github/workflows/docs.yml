@@ -1,0 +1,25 @@
+name: deploy
+
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [main]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v1
+        with:
+          version: "latest"
+
+      - name: Deploy with MkDocs
+        run: uv run mkdocs gh-deploy --force --config-file docs/mkdocs.yml
