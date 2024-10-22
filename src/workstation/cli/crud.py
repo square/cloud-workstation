@@ -316,6 +316,12 @@ def list(
                 status = ":play_button: Running"
             elif workstation["state"].name == "STATE_STOPPED":
                 status = ":stop_sign: Stopped"
+            elif workstation["state"].name == "STATE_STARTING":
+                status = ":hourglass: Starting"
+            elif workstation["state"].name == "STATE_STOPPING":
+                status = ":hourglass: Stopping"
+            else:
+                status = ":question: State unknown"
 
             config_branch = tree.add(
                 f"Workstation: {workstation['name'].split('/')[-1]}"
