@@ -54,20 +54,68 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
     mock_list_workstations.return_value = [
         {
             "name": "workstation1",
-            "state": workstation_state,
+            "project": "test-project",
+            "location": "us-central1",
+            "cluster": "cluster-public",
+            "state": type("obj", (object,), {"name": "STATE_RUNNING"})(),
             "env": {"LDAP": "test-user"},
             "config": {
+                "name": "this/config-name",
                 "image": "test-image",
                 "machine_type": "n1-standard-4",
                 "idle_timeout": 3600,
                 "max_runtime": 7200,
             },
-        }
+        },
+        {
+            "name": "workstation2",
+            "project": "test-project",
+            "location": "us-central1",
+            "cluster": "cluster-public",
+            "state": type("obj", (object,), {"name": "STATE_STOPPED"})(),
+            "env": {"LDAP": "other-user"},
+            "config": {
+                "name": "this/config-name",
+                "image": "test-image",
+                "machine_type": "n1-standard-4",
+                "idle_timeout": 3600,
+                "max_runtime": 7200,
+            },
+        },
     ]
 
     result = runner.invoke(crud.list, ["--user", "test-user"])
-    print(result.output)
-
     assert result.exit_code == 0
-    assert "workstation1" in result.output
-    assert "\u25b6 Running" in result.output
+    expected_tree_output = (
+        "Workstations\n"
+        "└── Workstation: workstation1\n"
+        "    ├── ▶ Running\n"
+        "    ├── User: test-user\n"
+        "    ├── 💽 Image: test-image\n"
+        "    ├── 💻 Machine Type: n1-standard-4\n"
+        "    ├── ⏳ Idle Timeout (s): 3600\n"
+        "    └── ⏳ Max Runtime (s): 7200\n"
+        "Total Workstations:  1\n"
+    )
+
+    assert result.output == expected_tree_output
+
+    result = runner.invoke(crud.list, ["--user", "test-user", "--json"])
+    expected_json_output = (
+        "[\n"
+        "    {\n"
+        '        "name": "workstation1",\n'
+        '        "user": "test-user",\n'
+        '        "project": "test-project",\n'
+        '        "location": "us-central1",\n'
+        '        "config": "config-name",\n'
+        '        "cluster": "cluster-public",\n'
+        '        "state": "STATE_RUNNING",\n'
+        '        "idle_timeout": 3600,\n'
+        '        "max_runtime": 7200,\n'
+        '        "type": "n1-standard-4",\n'
+        '        "image": "test-image"\n'
+        "    }\n"
+        "]\n"
+    )
+    assert result.output == expected_json_output
