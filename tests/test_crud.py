@@ -86,12 +86,36 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
 
     result = runner.invoke(crud.list, ["--user", "test-user"])
     assert result.exit_code == 0
-    assert "workstation1" in result.output
-    assert "User: test-user" in result.output
-    assert "User: other-user" not in result.output
+    expected_tree_output = (
+        "Workstations\n"
+        "└── Workstation: workstation1\n"
+        "    ├── ▶ Running\n"
+        "    ├── User: test-user\n"
+        "    ├── 💽 Image: test-image\n"
+        "    ├── 💻 Machine Type: n1-standard-4\n"
+        "    ├── ⏳ Idle Timeout (s): 3600\n"
+        "    └── ⏳ Max Runtime (s): 7200\n"
+        "Total Workstations:  1\n"
+    )
+    
+    assert result.output == expected_tree_output
 
     result = runner.invoke(crud.list, ["--user", "test-user", "--json"])
-    assert result.exit_code == 0
-    assert "workstation1" in result.output
-    assert "\"user\": \"test-user\"" in result.output
-    assert "\"user\": \"other-user\"" not in result.output
+    expected_json_output = (
+        '[\n'
+        '    {\n'
+        '        "name": "workstation1",\n'
+        '        "user": "test-user",\n'
+        '        "project": "test-project",\n'
+        '        "location": "us-central1",\n'
+        '        "config": "config-name",\n'
+        '        "cluster": "cluster-public",\n'
+        '        "state": "STATE_RUNNING",\n'
+        '        "idle_timeout": 3600,\n'
+        '        "max_runtime": 7200,\n'
+        '        "type": "n1-standard-4",\n'
+        '        "image": "test-image"\n'
+        '    }\n'
+        ']\n'
+    )
+    assert result.output == expected_json_output
