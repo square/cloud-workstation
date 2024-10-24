@@ -305,65 +305,54 @@ def list(
         location=location,
     )
 
-    if not export_json:
+    results = []
+    for workstation in workstations:
+        if not all and workstation.get("env", {}).get("LDAP") != user:
+            continue
+
+        result = {
+            "name": workstation["name"].split("/")[-1],
+            "user": workstation["env"]["LDAP"],
+            "project": workstation["project"],
+            "location": workstation["location"],
+            "config": workstation["config"]["name"].split("/")[-1],
+            "cluster": workstation["cluster"],
+            "state": workstation["state"].name,
+            "idle_timeout": workstation["config"]["idle_timeout"],
+            "max_runtime": workstation["config"]["max_runtime"],
+            "type": workstation["config"]["machine_type"],
+            "image": workstation["config"]["image"],
+        }
+        results.append(result)
+
+    if export_json:
+        json_data = json.dumps(results, indent=4)
+        console.print(json_data)
+    else:
         tree = Tree("Workstations", style="bold blue")
 
-        for workstation in workstations:
-            if not all and workstation.get("env", {}).get("LDAP") != user:
-                continue
-
-            if workstation["state"].name == "STATE_RUNNING":
+        for result in results:
+            if result["state"] == "STATE_RUNNING":
                 status = ":play_button: Running"
-            elif workstation["state"].name == "STATE_STOPPED":
+            elif result["state"] == "STATE_STOPPED":
                 status = ":stop_sign: Stopped"
-            elif workstation["state"].name == "STATE_STARTING":
+            elif result["state"] == "STATE_STARTING":
                 status = ":hourglass: Starting"
-            elif workstation["state"].name == "STATE_STOPPING":
+            elif result["state"] == "STATE_STOPPING":
                 status = ":hourglass: Stopping"
             else:
                 status = ":question: State unknown"
 
-            config_branch = tree.add(
-                f"Workstation: {workstation['name'].split('/')[-1]}"
-            )
+            config_branch = tree.add(f"Workstation: {result['name']}")
             config_branch.add(f"{status}", style="white")
-            config_branch.add(f"User: {workstation['env']['LDAP']}", style="white")
-            config_branch.add(f":minidisc: Image: {workstation['config']['image']}")
-            config_branch.add(
-                f":computer: Machine Type: {workstation['config']['machine_type']}"
-            )
-            config_branch.add(
-                f":hourglass_flowing_sand: Idle Timeout (s): {str(workstation['config']['idle_timeout'])}"
-            )
-            config_branch.add(
-                f":hourglass_flowing_sand: Max Runtime (s): {str(workstation['config']['max_runtime'])}"
-            )
+            config_branch.add(f"User: {result['user']}", style="white")
+            config_branch.add(f":minidisc: Image: {result['image']}")
+            config_branch.add(f":computer: Machine Type: {result['type']}")
+            config_branch.add(f":hourglass_flowing_sand: Idle Timeout (s): {str(result['idle_timeout'])}")
+            config_branch.add(f":hourglass_flowing_sand: Max Runtime (s): {str(result['max_runtime'])}")
 
         console.print(tree)
         console.print("Total Workstations: ", len(tree.children))
-    else:
-        results = []
-        for workstation in workstations:
-            if not all and workstation.get("env", {}).get("LDAP") != user:
-                continue
-
-            result = {}
-            result["name"] = workstation["name"].split("/")[-1]
-            result["user"] = workstation["env"]["LDAP"]
-            result["user"] = workstation["env"]["LDAP"]
-            result["project"] = workstation["project"]
-            result["location"] = workstation["location"]
-            result["config"] = workstation["config"]["name"].split("/")[-1]
-            result["cluster"] = workstation["cluster"]
-            result["state"] = workstation["state"].name
-            result["idle_timeout"] = workstation["config"]["idle_timeout"]
-            result["max_runtime"] = workstation["config"]["max_runtime"]
-            result["type"] = workstation["config"]["machine_type"]
-            result["image"] = workstation["config"]["image"]
-            results.append(result)
-
-        json_data = json.dumps(results, indent=4)
-        console.print(json_data)
 
 
 @command()
