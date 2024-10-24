@@ -54,20 +54,44 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
     mock_list_workstations.return_value = [
         {
             "name": "workstation1",
-            "state": workstation_state,
+            "project": "test-project",
+            "location": "us-central1",
+            "cluster": "cluster-public",
+            "state": type('obj', (object,), {'name' : 'STATE_RUNNING'})(),
             "env": {"LDAP": "test-user"},
             "config": {
+                "name": "this/config-name",
                 "image": "test-image",
                 "machine_type": "n1-standard-4",
                 "idle_timeout": 3600,
                 "max_runtime": 7200,
             },
+        },
+        {
+            "name": "workstation2",
+            "project": "test-project",
+            "location": "us-central1",
+            "cluster": "cluster-public",
+            "state": type('obj', (object,), {'name' : 'STATE_STOPPED'})(),
+            "env": {"LDAP": "other-user"},
+            "config": {
+                "name": "this/config-name",
+                "image": "test-image",
+                "machine_type": "n1-standard-4",
+                "idle_timeout": 3600,
+                "max_runtime": 7200,
+            }
         }
     ]
 
     result = runner.invoke(crud.list, ["--user", "test-user"])
-    print(result.output)
-
     assert result.exit_code == 0
     assert "workstation1" in result.output
-    assert "\u25b6 Running" in result.output
+    assert "User: test-user" in result.output
+    assert "User: other-user" not in result.output
+
+    result = runner.invoke(crud.list, ["--user", "test-user", "--json"])
+    assert result.exit_code == 0
+    assert "workstation1" in result.output
+    assert "\"user\": \"test-user\"" in result.output
+    assert "\"user\": \"other-user\"" not in result.output

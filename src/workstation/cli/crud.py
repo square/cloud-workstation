@@ -344,6 +344,9 @@ def list(
     else:
         results = []
         for workstation in workstations:
+            if not all and workstation.get("env", {}).get("LDAP") != user:
+                continue
+
             result = {}
             result["name"] = workstation["name"].split("/")[-1]
             result["user"] = workstation["env"]["LDAP"]
