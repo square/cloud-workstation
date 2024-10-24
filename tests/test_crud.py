@@ -57,7 +57,7 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
             "project": "test-project",
             "location": "us-central1",
             "cluster": "cluster-public",
-            "state": type('obj', (object,), {'name' : 'STATE_RUNNING'})(),
+            "state": type("obj", (object,), {"name": "STATE_RUNNING"})(),
             "env": {"LDAP": "test-user"},
             "config": {
                 "name": "this/config-name",
@@ -72,7 +72,7 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
             "project": "test-project",
             "location": "us-central1",
             "cluster": "cluster-public",
-            "state": type('obj', (object,), {'name' : 'STATE_STOPPED'})(),
+            "state": type("obj", (object,), {"name": "STATE_STOPPED"})(),
             "env": {"LDAP": "other-user"},
             "config": {
                 "name": "this/config-name",
@@ -80,8 +80,8 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
                 "machine_type": "n1-standard-4",
                 "idle_timeout": 3600,
                 "max_runtime": 7200,
-            }
-        }
+            },
+        },
     ]
 
     result = runner.invoke(crud.list, ["--user", "test-user"])
@@ -97,13 +97,13 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
         "    └── ⏳ Max Runtime (s): 7200\n"
         "Total Workstations:  1\n"
     )
-    
+
     assert result.output == expected_tree_output
 
     result = runner.invoke(crud.list, ["--user", "test-user", "--json"])
     expected_json_output = (
-        '[\n'
-        '    {\n'
+        "[\n"
+        "    {\n"
         '        "name": "workstation1",\n'
         '        "user": "test-user",\n'
         '        "project": "test-project",\n'
@@ -115,7 +115,7 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
         '        "max_runtime": 7200,\n'
         '        "type": "n1-standard-4",\n'
         '        "image": "test-image"\n'
-        '    }\n'
-        ']\n'
+        "    }\n"
+        "]\n"
     )
     assert result.output == expected_json_output

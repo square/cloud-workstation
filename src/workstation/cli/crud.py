@@ -348,8 +348,12 @@ def list(
             config_branch.add(f"User: {result['user']}", style="white")
             config_branch.add(f":minidisc: Image: {result['image']}")
             config_branch.add(f":computer: Machine Type: {result['type']}")
-            config_branch.add(f":hourglass_flowing_sand: Idle Timeout (s): {str(result['idle_timeout'])}")
-            config_branch.add(f":hourglass_flowing_sand: Max Runtime (s): {str(result['max_runtime'])}")
+            config_branch.add(
+                f":hourglass_flowing_sand: Idle Timeout (s): {str(result['idle_timeout'])}"
+            )
+            config_branch.add(
+                f":hourglass_flowing_sand: Max Runtime (s): {str(result['max_runtime'])}"
+            )
 
         console.print(tree)
         console.print("Total Workstations: ", len(tree.children))
