@@ -6,7 +6,9 @@ from workstation.core import create_workstation
 
 @patch("workstation.core.workstations_v1beta.WorkstationsClient")
 @patch("workstation.core.config_manager.write_configuration")
-def test_create_workstation_env_dict(mock_write_configuration, mock_workstations_client):
+def test_create_workstation_env_dict(
+    mock_write_configuration, mock_workstations_client
+):
     mock_client_instance = mock_workstations_client.return_value
     mock_operation = mock_client_instance.create_workstation.return_value
     mock_operation.result.return_value = {}

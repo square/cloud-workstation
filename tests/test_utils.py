@@ -1,5 +1,6 @@
 import pytest
 from pytest_mock import MockerFixture
+
 from workstation.utils import get_instance_assignment, process_entry
 
 

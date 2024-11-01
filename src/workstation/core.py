@@ -132,6 +132,8 @@ def create_workstation(
         Proxy settings, by default None.
     no_proxy : Optional[str], optional
         No-proxy settings, by default None.
+    envs : Optional[Tuple[Tuple[str, str]]], optional
+        Additional environment variables to set, by default None.
 
     Returns
     -------
@@ -162,7 +164,6 @@ def create_workstation(
                 logger.warning(
                     f"Environment variable {key} already exists in the environment, skipping"
                 )
-
 
     request = workstations_v1beta.CreateWorkstationRequest(
         parent=f"projects/{project}/locations/{location}/workstationClusters/{cluster}/workstationConfigs/{config}",
