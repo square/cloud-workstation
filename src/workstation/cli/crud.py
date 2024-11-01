@@ -192,7 +192,7 @@ def common_options(func):  # noqa: D103
 @click.pass_context
 def create(
     context: click.Context,
-    cluster: Optional[str],
+    cluster: str,
     config: str,
     location: Optional[str],
     name: str,
@@ -259,6 +259,7 @@ def list_configs(
     context: click.Context,
     project: Optional[str],
     location: Optional[str],
+    cluster: str,
     **kwargs,
 ):
     """List workstation configurations."""
@@ -267,7 +268,7 @@ def list_configs(
 
     project, location, account = get_gcloud_config(project=project, location=location)
     configs = list_workstation_configs(
-        cluster=kwargs["cluster"],
+        cluster=cluster,
         project=project,
         location=location,
     )
@@ -301,7 +302,7 @@ def list(
     all: bool,
     user: str,
     export_json: bool,
-    cluster: Optional[str],
+    cluster: str,
     **kwargs,
 ):
     """List workstations."""
@@ -424,6 +425,7 @@ def start(context: click.Context, name: str, code: bool, browser: bool, **kwargs
 
 @command()
 @click.option(
+    "-n",
     "--name",
     help="Name of the workstation to stop.",
     type=str,
@@ -442,6 +444,7 @@ def stop(context: click.Context, **kwargs):
 
 @command()
 @click.option(
+    "-n",
     "--name",
     help="Name of the workstation to delete.",
     type=str,
@@ -463,6 +466,7 @@ def delete(context: click.Context, **kwargs):
 
 @command()
 @click.option(
+    "-n",
     "--name",
     help="Name of the workstation to sync.",
     type=str,
