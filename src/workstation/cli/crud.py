@@ -180,6 +180,15 @@ def common_options(func):  # noqa: D103
     type=str,
     metavar="<str>",
 )
+@click.option(
+    "--envs",
+    "-e",
+    "envs",
+    type=(str, str),
+    multiple=True,
+    help="Environment variables to set at runtime.",
+    metavar="<key value>",
+)
 @click.pass_context
 def create(
     context: click.Context,
@@ -190,6 +199,7 @@ def create(
     project: Optional[str],
     proxy: Optional[str],
     no_proxy: Optional[str],
+    envs: tuple,
     **kwargs,
 ):
     """Create a workstation."""
@@ -227,6 +237,7 @@ def create(
         location=location,
         proxy=proxy,
         no_proxy=no_proxy,
+        envs=envs,
     )
 
     config_manager.write_ssh_config(

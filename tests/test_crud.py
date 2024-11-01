@@ -3,7 +3,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from click.testing import CliRunner
-
 from workstation.cli import crud
 
 
@@ -119,3 +118,6 @@ def test_list(mock_get_gcloud_config, mock_check_gcloud_auth, mock_list_workstat
         "]\n"
     )
     assert result.output == expected_json_output
+
+
+
