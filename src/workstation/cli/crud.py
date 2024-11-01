@@ -33,7 +33,7 @@ import getpass
 import json
 import sys
 import webbrowser
-from typing import Optional
+from typing import Optional, Tuple
 
 import click
 from rich.console import Console
@@ -181,7 +181,7 @@ def common_options(func):  # noqa: D103
     metavar="<str>",
 )
 @click.option(
-    "--envs",
+    "--env",
     "-e",
     "envs",
     type=(str, str),
