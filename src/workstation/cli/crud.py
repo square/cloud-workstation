@@ -199,7 +199,7 @@ def create(
     project: Optional[str],
     proxy: Optional[str],
     no_proxy: Optional[str],
-    envs: tuple,
+    envs: Tuple[Tuple[str, str]],
     **kwargs,
 ):
     """Create a workstation."""

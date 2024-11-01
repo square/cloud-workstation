@@ -107,7 +107,7 @@ def create_workstation(
     user: str,
     proxy: Optional[str] = None,
     no_proxy: Optional[str] = None,
-    envs: Optional[Tuple] = None,
+    envs: Optional[Tuple[Tuple[str, str]]] = None,
 ) -> Workstation:
     """
     Create a new workstation with the specified configuration.
@@ -158,6 +158,10 @@ def create_workstation(
         for key, value in user_envs.items():
             if key not in env:
                 env[key] = value
+            else:
+                logger.warning(
+                    f"Environment variable {key} already exists in the environment, skipping"
+                )
 
 
     request = workstations_v1beta.CreateWorkstationRequest(
