@@ -1,5 +1,5 @@
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from google.api_core.exceptions import AlreadyExists
 from google.api_core.operation import Operation
@@ -107,6 +107,7 @@ def create_workstation(
     user: str,
     proxy: Optional[str] = None,
     no_proxy: Optional[str] = None,
+    envs: Optional[Tuple[Tuple[str, str]]] = None,
 ) -> Workstation:
     """
     Create a new workstation with the specified configuration.
@@ -131,6 +132,8 @@ def create_workstation(
         Proxy settings, by default None.
     no_proxy : Optional[str], optional
         No-proxy settings, by default None.
+    envs : Optional[Tuple[Tuple[str, str]]], optional
+        Additional environment variables to set, by default None.
 
     Returns
     -------
@@ -150,6 +153,17 @@ def create_workstation(
         env["HTTP_PROXY"] = proxy
         env["no_proxy"] = no_proxy
         env["NO_PROXY"] = no_proxy
+
+    if envs:
+        user_envs = dict(envs)
+        # ensure that no duplicate keys are added to env
+        for key, value in user_envs.items():
+            if key not in env:
+                env[key] = value
+            else:
+                logger.warning(
+                    f"Environment variable {key} already exists in the environment, skipping"
+                )
 
     request = workstations_v1beta.CreateWorkstationRequest(
         parent=f"projects/{project}/locations/{location}/workstationClusters/{cluster}/workstationConfigs/{config}",
