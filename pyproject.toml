@@ -1,7 +1,7 @@
 [project]
 name = "cloud-workstation"
-version = "0.2.0"
-requires-python = ">=3.8"
+version = "0.3.0"
+requires-python = ">=3.9"
 readme = "README.md"
 description = ""
 authors = [
@@ -15,7 +15,7 @@ dependencies = [
     "pyyaml>=6.0.1,<7.0.0",
     "wheel>=0.43.0,<0.44.0",
     "rich>=13.7.1,<14.0.0",
-    "grpcio==1.64.1",  # Pin grpcio to version 1.64.1 as 1.65.0+ have issues https://github.com/grpc/grpc/issues/37178
+    "grpcio>=1.68.0,<2.0.0",
     "google-cloud-logging>=3.10.0,<4.0.0"
 ]
 
