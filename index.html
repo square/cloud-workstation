@@ -1,0 +1,1035 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Workstation">
+      
+      
+      
+      
+      
+        <link rel="next" href="api/">
+      
+      
+      <link rel="icon" href="img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>Cloud Workstations - Workstation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="css/app.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","UA-163700149-1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","UA-163700149-1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=UA-163700149-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cloud-workstations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Workstation" class="md-header__button md-logo" aria-label="Workstation" data-md-component="logo">
+      
+  <img src="img/cashapp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Workstation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cloud Workstations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/square/workstations" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    square/workstations
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://github.com/square/workstations/issues" class="md-tabs__link">
+          
+  
+    
+  
+  Issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="api/" class="md-tabs__link">
+        
+  
+    
+  
+  Developer Docs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="cli/" class="md-tabs__link">
+          
+  
+    
+  
+  Command Line Usage
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Workstation" class="md-nav__button md-logo" aria-label="Workstation" data-md-component="logo">
+      
+  <img src="img/cashapp.png" alt="logo">
+
+    </a>
+    Workstation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/square/workstations" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    square/workstations
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="." class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Issues
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Issues
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/square/workstations/issues" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Command Line Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Command Line Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Line Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#more-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      More details:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="More details:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-type-of-workstation-you-want-to-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determine the type of workstation you want to create
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-workstation-and-start-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your workstation and start it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-a-workstation-with-local-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to a Workstation with local VS Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-your-workstations" class="md-nav__link">
+    <span class="md-ellipsis">
+      List your workstations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idle-vs-max-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idle vs Max Runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syncing-files-to-the-workstation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syncing files to the workstation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Syncing files to the workstation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-of-using-workstation-sync-to-sync-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of using workstation sync to sync credentials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development and Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#render-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Render Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-local-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run local copy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-vscode-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using VSCode Debugger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cloud-workstations">Cloud Workstations<a class="headerlink" href="#cloud-workstations" title="Permanent link">&para;</a></h1>
+<p>Cloud Workstations are remote development machines hosted in Google cloud. Workstations provide a full-featured development experience and allow users to connect a remote machine to VSCode. Workstations provide a development experience similar to your laptop with some key differences. </p>
+<p>Workstations&hellip; </p>
+<ul>
+<li>run inside your VPC or cloud network so you can access internal sources  </li>
+<li>are ephemeral and shut down after a maximum runtime</li>
+<li>run a linux OS and allow you to attach accelerators or change the machine type</li>
+<li>provide preconfigured environments freeing users from having to worry about their local setup</li>
+</ul>
+<h2 id="more-details">More details:<a class="headerlink" href="#more-details" title="Permanent link">&para;</a></h2>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Users authenticate to a workstation via IAM using their LDAP. This means that running <code>gcloud auth login</code>, etc. is necessary to access google services from the workstation. Like on your laptop, this cached credential is valid for 12 hours and persists between workstation sessions.</li>
+<li>Compared to VertexAI notebooks and CustomJobs, which are typically run as a service account, workstation sessions have more narrowly scoped access. By default, only the creator of a workstation has access to that workstation instance.</li>
+</ul>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Like your laptop, workstations will go to sleep/shutdown after a period of inactivity. Additionally, there is a maximum runtime before it is shut off. These values are set in the workstation definition (config), and we have started with some defaults.  This activity is measured via SSH or HTTP traffic.
+   Furthermore, anything in <code>/home/</code> will persist between sessions.</li>
+</ul>
+<h2 id="ide">IDE<a class="headerlink" href="#ide" title="Permanent link">&para;</a></h2>
+<ul>
+<li>There are two ways to use the IDE:<ul>
+<li>via the web browser, which does not requires an SSH connection, ensuring low latency </li>
+<li>by attaching your IDE remote workstation via the remote SSH extension</li>
+</ul>
+</li>
+<li>Google has some examples of the open source VSCode and Jetbrains.</li>
+</ul>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>Install the workstation CLI using pip or (recommended) pipx</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>cloud-workstation
+</code></pre></div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="determine-the-type-of-workstation-you-want-to-create">Determine the type of workstation you want to create<a class="headerlink" href="#determine-the-type-of-workstation-you-want-to-create" title="Permanent link">&para;</a></h3>
+<p>Using the command <code>workstation list-configs</code> you can see all configs that are available to you. New workstation configs can be added by an admin. If you have questions about which config to use or have a use case for a new config, please reach out ot #machine-learning-tools.</p>
+<p><div class="highlight"><pre><span></span><code>workstation<span class="w"> </span>list-configs
+</code></pre></div>
+For example you might get a result like this:
+<div class="highlight"><pre><span></span><code>├── Config: medium
+│   ├── 💽 Image: us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest
+│   ├── 💻 Machine Type: n2-standard-16
+│   ├── ⏳ Idle Timeout (hours): 2.0
+│   └── ⏳ Max Runtime (hours): 12.0
+</code></pre></div></p>
+<p>Which indicates that you have the config <code>medium</code> available, and that this will give you a <code>n2-standard-16</code> machine with a 2 hour idle timeout and a 12 hour max runtime.</p>
+<h3 id="create-your-workstation-and-start-it">Create your workstation and start it<a class="headerlink" href="#create-your-workstation-and-start-it" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>❯<span class="w"> </span>workstation<span class="w"> </span>create<span class="w"> </span>--config<span class="w"> </span>medium<span class="w"> </span>--name<span class="w"> </span>&lt;WORKSTATION<span class="w"> </span>NAME&gt;
+❯<span class="w"> </span>workstation<span class="w"> </span>start<span class="w"> </span>--name<span class="w"> </span>&lt;WORKSTATION<span class="w"> </span>NAME&gt;
+</code></pre></div>
+If you make a VSCode based IDE image you can also use the <code>--browser</code> option will open VSCode directly in your browser. If you&rsquo;d like to connect your remote machine to your Desktop VSCode app follow the setup directions for local <a class="autorefs autorefs-internal" href="#connect-to-a-workstation-with-local-vs-code">VS Code</a> and then start your workstation with the <code>--code</code> option.</p>
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>workstation<span class="w"> </span>start<span class="w"> </span>--name<span class="w"> </span>&lt;WORKSTATION<span class="w"> </span>NAME&gt;<span class="w"> </span>--code
+</code></pre></div>
+<p>You can also ssh directly to your remote machine. For example, running commands like <code>ssh &lt;WORKSTATION NAME&gt;</code> in a local terminal will open an SSH connection to your remote machine.</p>
+<p>You can use either the <code>workstation</code> CLI or the browser to list, start, and stop workstations. You can view active workstations in the browser at <a href="https://console.cloud.google.com/workstations/">https://console.cloud.google.com/workstations/</a></p>
+<p><img alt="ssh-gui" src="img/gui-ssh.png" /></p>
+<h3 id="connect-to-a-workstation-with-local-vs-code">Connect to a Workstation with local VS Code<a class="headerlink" href="#connect-to-a-workstation-with-local-vs-code" title="Permanent link">&para;</a></h3>
+<ol>
+<li>To enable local VS Code to connect to a Workstation, you will need to install the Remote - SSH extension.</li>
+<li>Setup your <code>~/.ssh/config</code> file to include the following:
+    <div class="highlight"><pre><span></span><code>Include ~/.workstations/configs/*.config
+</code></pre></div></li>
+<li>Once installed, you can connect to a Workstation by clicking on the green icon in the bottom left corner of VS Code and selecting &ldquo;Remote-SSH: Connect to Host&hellip;&rdquo;. You can then select the workstation host from the list.
+<img alt="workstation option" src="img/ssh-remote1.png" />
+<img alt="workstation IDE" src="img/ssh-remote2.png" /></li>
+<li>Install your extensions on the remote host.  VS Code doesn&rsquo;t install some like copilot or Python by default on the remote host. But click on the cloud icon and select which extensions you want to install.
+<img alt="extensions" src="img/ssh-remote3.png" /></li>
+</ol>
+<h3 id="list-your-workstations">List your workstations<a class="headerlink" href="#list-your-workstations" title="Permanent link">&para;</a></h3>
+<p>You can go to <a href="https://console.cloud.google.com/workstations/">https://console.cloud.google.com/workstations/</a> to see you workstations and status or use the <code>workstation list ---user &lt;USER&gt;</code> command</p>
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>workstation<span class="w"> </span>list<span class="w"> </span>--user<span class="w"> </span>damien
+Workstations
+├──<span class="w"> </span>Workstation:<span class="w"> </span>damien-medium
+<span class="w">    </span>├──<span class="w"> </span>🛑<span class="w"> </span>Stopped
+<span class="w">    </span>├──<span class="w"> </span>User:<span class="w"> </span>damien
+<span class="w">    </span>├──<span class="w"> </span>💽<span class="w"> </span>Image:<span class="w"> </span>us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest
+<span class="w">    </span>├──<span class="w"> </span>💻<span class="w"> </span>Machine<span class="w"> </span>Type:<span class="w"> </span>n2-standard-16
+<span class="w">    </span>├──<span class="w"> </span>⏳<span class="w"> </span>Idle<span class="w"> </span>Timeout<span class="w"> </span><span class="o">(</span>hours<span class="o">)</span>:<span class="w"> </span><span class="m">2</span>.0
+<span class="w">    </span>└──<span class="w"> </span>⏳<span class="w"> </span>Max<span class="w"> </span>Runtime<span class="w"> </span><span class="o">(</span>hours<span class="o">)</span>:<span class="w"> </span><span class="m">12</span>.0
+Total<span class="w"> </span>Workstations:<span class="w">  </span><span class="m">1</span>
+</code></pre></div>
+<p>Json output is also supported with the <code>--json</code> flag.
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>workstation<span class="w"> </span>list<span class="w"> </span>--json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[] | select(.user == &quot;damien&quot; and .state == &quot;STATE_STOPPED&quot;)&#39;</span>
+</code></pre></div>
+Which give you the output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;damien-medium&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;damien&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-central1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode-medium&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cluster&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STATE_STOPPED&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;idle_timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;max_runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n2-standard-16&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="idle-vs-max-runtime">Idle vs Max Runtime<a class="headerlink" href="#idle-vs-max-runtime" title="Permanent link">&para;</a></h3>
+<p>Idle Timeout is the amount of time the workstation will wait before shutting down if there is no activity based on the config (in the previous config example that is 4 hours). This is measured via SSH or HTTP traffic.  Max Runtime is the maximum amount of time the workstation will run before shutting down regardless of activity. It is possible to create configs that never idle, or have a max runtime.</p>
+<h3 id="syncing-files-to-the-workstation">Syncing files to the workstation<a class="headerlink" href="#syncing-files-to-the-workstation" title="Permanent link">&para;</a></h3>
+<p>There are a few ways to sync files to the workstation.  A built in way is to use the <code>workstation sync</code> command.  This command will sync the files in <code>~/remote-machines/workstation/</code> to the workstation.  This is useful for syncing your keys and other files that you might like for a customized experience like a custom ~/.zshrc. However there are drag and drop methods, or just doing it directly from the terminal with ssh or rsync.</p>
+<ol>
+<li>Option 1: Use <code>workstation sync --name &lt;WORKSTATION_NAME&gt;</code> to sync the keys and anything else in  <code>`~/remote-machines/workstation/</code> to your home directory on the workstation, with additional options for different directories.</li>
+<li>Option 2: Turn on the workstation and drag and drop the files into the file explorer in VS Code.</li>
+<li>
+<p>Option 3: User scp or rsync if you setup your ~/.ssh/config as above and use the commands like normal. For example:</p>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-avz<span class="w"> </span>--exclude<span class="o">=</span><span class="s2">&quot;.*&quot;</span><span class="w"> </span>--exclude<span class="w"> </span><span class="s2">&quot;*/__pycache__&quot;</span><span class="w"> </span>/path/to/local/folder<span class="w"> </span>&lt;WORKSTATION&gt;:/path/to/remote/folder
+</code></pre></div>
+</li>
+</ol>
+<h4 id="example-of-using-workstation-sync-to-sync-credentials">Example of using workstation sync to sync credentials<a class="headerlink" href="#example-of-using-workstation-sync-to-sync-credentials" title="Permanent link">&para;</a></h4>
+<p>You can sync files from your laptop to the workstation using the <code>workstation sync</code> command.  This command will sync the files in your local <code>~/remote-machines/workstation/</code> directory to the workstation.  This is useful for syncing your keys and other files that you might like for a customized experience like a custom ~/.zshrc. However there are drag and drop methods, or just doing it directly from the terminal. </p>
+<p>For example, if you have followed the directions on <a href="#accessing-github">Accessing GitHub</a> and saved the Github certificate in <code>~/remote-machines/workstation/</code> the following command will sync that cert to the remote machine and enable github access.  Syncing credentails or configuration files only needs to happen once after creating the workstation instance since these will persist on the disk. </p>
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>workstation<span class="w"> </span>sync<span class="w"> </span>--name<span class="w"> </span>damien-medium
+building<span class="w"> </span>file<span class="w"> </span>list<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
+./
+.p10k.zsh
+.zsh_plugins.txt
+.zshrc
+.ssh/
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+test/
+
+sent<span class="w"> </span><span class="m">95505</span><span class="w"> </span>bytes<span class="w">  </span>received<span class="w"> </span><span class="m">182</span><span class="w"> </span>bytes<span class="w">  </span><span class="m">63791</span>.33<span class="w"> </span>bytes/sec
+total<span class="w"> </span>size<span class="w"> </span>is<span class="w"> </span><span class="m">94956</span><span class="w">  </span>speedup<span class="w"> </span>is<span class="w"> </span><span class="m">0</span>.99
+</code></pre></div>
+<h2 id="report-issues">Report issues<a class="headerlink" href="#report-issues" title="Permanent link">&para;</a></h2>
+<p>Use the issue link above to take you to the repo issue <a href="https://github.com/square/workstations/issues">page</a>. Please include the version of the CLI you are using <code>❯ workstation --version</code> and which config.</p>
+<h2 id="development-and-testing">Development and Testing<a class="headerlink" href="#development-and-testing" title="Permanent link">&para;</a></h2>
+<p>We use <a href="https://cashapp.github.io/hermit/">Hermit</a> to manage the development environment.  To get started, install Hermit and run the following command</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/cashapp/hermit/releases/download/stable/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>/bin/bash
+</code></pre></div>
+<p>After cloning the repo do <code>. bin/activate-hermit</code> which will make the environment available with UV, Ruff, and Just. </p>
+<h3 id="render-docs">Render Docs<a class="headerlink" href="#render-docs" title="Permanent link">&para;</a></h3>
+<p><code>just docs</code></p>
+<h3 id="run-tests">Run Tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h3>
+<p><code>just tests</code></p>
+<h3 id="run-local-copy">Run local copy<a class="headerlink" href="#run-local-copy" title="Permanent link">&para;</a></h3>
+<p><code>uv run workstation --version</code></p>
+<h3 id="using-vscode-debugger">Using VSCode Debugger<a class="headerlink" href="#using-vscode-debugger" title="Permanent link">&para;</a></h3>
+<p>If you want to use VS Code debug mode use this profile.
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Module&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workstation.cli&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;list-configs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--cluster&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;YOUR-CLUSTER&gt;&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.tabs.link", "navigation.indexes"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="js/all-pages.js"></script>
+      
+    
+  </body>
+</html>
