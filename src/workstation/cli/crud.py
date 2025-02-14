@@ -522,3 +522,54 @@ def logs(name: str, project: str, **kwargs):
         return
     console.print(f"Logs for instance: {instance.get('instance_name')} opening")
     webbrowser.open(instance.get("logs_url"))
+
+
+@command()
+@click.option(
+    "-n",
+    "--name",
+    help="Name of the workstation to SSH into.",
+    type=str,
+    metavar="<str>",
+    required=True,
+)
+@click.option(
+    "-c",
+    "--command",
+    help="Command to run in the SSH session.",
+    type=str,
+    metavar="<str>",
+)
+@click.pass_context
+def ssh(context: click.Context, name: str, command: str = None, **kwargs):
+    """SSH into a workstation. Optionally run a command in the session."""
+    # Make sure the user is authenticated
+    check_gcloud_auth()
+
+    workstation_details = config_manager.read_configuration(name)
+    user = getpass.getuser()
+
+    # Construct and execute the gcloud ssh command
+    import subprocess
+
+    ssh_cmd = [
+        "gcloud",
+        "workstations",
+        "ssh",
+        f"--project={workstation_details['project']}",
+        f"--cluster={workstation_details['cluster']}",
+        f"--config={workstation_details['config']}",
+        f"--region={workstation_details['location']}",
+        f"--user={user}",
+        name,
+    ]
+
+    # Add command if specified
+    if command:
+        # Always use -t for all commands to ensure proper terminal handling
+        ssh_cmd.extend(["--", "-t", command])
+        console.print(f"Running command '{command}' on workstation {name}...")
+    else:
+        console.print(f"Connecting to workstation {name}...")
+
+    subprocess.run(ssh_cmd)

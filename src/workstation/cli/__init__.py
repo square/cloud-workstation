@@ -1,6 +1,6 @@
 import click
 
-from .crud import create, delete, list, list_configs, logs, start, stop, sync
+from .crud import create, delete, list, list_configs, logs, ssh, start, stop, sync
 
 try:
     from block.clitools.clock import group as base_group
@@ -33,3 +33,4 @@ cli.add_command(stop)
 cli.add_command(delete)
 cli.add_command(sync)
 cli.add_command(logs)
+cli.add_command(ssh)
