@@ -1,8 +1,8 @@
 site_name: Workstation
 site_description: Documentation for Workstation
-repo_url: https://github.com/square/workstations
-repo_name: "square/workstations"
-edit_uri: "https://github.com/square/workstations/blob/main/docs/docs/"
+repo_url: https://github.com/square/cloud-workstation
+repo_name: "square/cloud-workstation"
+edit_uri: "https://github.com/square/cloud-workstation/blob/main/docs/docs/"
 strict: false
 #test
 ####################################################################################################
@@ -22,7 +22,7 @@ nav:
   - Home:
     - index.md
   - Issues:
-    - https://github.com/square/workstations/issues
+    - https://github.com/square/cloud-workstation/issues
   - Developer Docs: api.md
   - Command Line Usage:
     - cli.md

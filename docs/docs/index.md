@@ -169,7 +169,7 @@ total size is 94956  speedup is 0.99
 
 
 ## Report issues
-Use the issue link above to take you to the repo issue [page](https://github.com/square/workstations/issues). Please include the version of the CLI you are using `❯ workstation --version` and which config.
+Use the issue link above to take you to the repo issue [page](https://github.com/square/cloud-workstation/issues). Please include the version of the CLI you are using `❯ workstation --version` and which config.
 
 
 
